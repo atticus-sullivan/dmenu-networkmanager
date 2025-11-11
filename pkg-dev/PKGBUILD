@@ -1,0 +1,23 @@
+# Maintainer: Lukas Heindl <oss.heindl@protonmail.com>
+pkgname=dmenu-networkmanager-dev
+pkgver=67b130a
+pkgrel=1
+pkgdesc="Interact with networkmanager via dmenu"
+arch=('x86_64')
+url="https://github.com/atticus-sullivan/dmenu-networkmanager"
+license=('MIT')
+depends=("networkmanager")
+provides=("dmenu-networkmanager")
+conflicts=("dmenu-networkmanager")
+source=("${pkgname}::git+${url}.git#branch=dev")
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "${pkgname}"
+	git rev-parse --short HEAD
+}
+
+package() {
+	cd "${pkgname}"
+	install -Dm755 "dmenu-networkmanager.bash" "$pkgdir/usr/local/bin/dmenu-networkmanager"
+}
