@@ -9,15 +9,10 @@ license=('MIT')
 depends=("networkmanager")
 provides=("dmenu-networkmanager")
 conflicts=("dmenu-networkmanager-dev")
-source=("${pkgname}::git+${url}.git#branch=dev")
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
 sha256sums=('SKIP')
 
-pkgver() {
-	cd "${pkgname}"
-	git rev-parse --short HEAD
-}
-
 package() {
-	cd "${pkgname}"
+	cd "${pkgname}-${pkgver}"
 	install -Dm755 "dmenu-networkmanager.bash" "$pkgdir/usr/local/bin/dmenu-networkmanager"
 }
