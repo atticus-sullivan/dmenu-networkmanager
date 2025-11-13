@@ -1,6 +1,6 @@
 # Maintainer: Lukas Heindl <oss.heindl@protonmail.com>
 pkgname=dmenu-networkmanager-dev
-pkgver=67b130a
+pkgver=3b95c95
 pkgrel=1
 pkgdesc="Interact with networkmanager via dmenu"
 arch=('x86_64')
